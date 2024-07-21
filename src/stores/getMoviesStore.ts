@@ -9,6 +9,7 @@ export const useMoviesStore = defineStore('movies', () => {
   const isLoadingMovies = ref(false)
   const isLoadingGenres = ref(false)
   const isAuth = ref(false)
+  const openModalAuth = ref(false)
 
   const isLoading = computed(() => isLoadingGenres.value || isLoadingMovies.value)
   const fetchMoviesData = async () => {
@@ -48,5 +49,5 @@ export const useMoviesStore = defineStore('movies', () => {
   //   }
   // }
 
-  return {movies, fetchMoviesData, isLoading, currentMovies, isAuth}
+  return {movies, fetchMoviesData, isLoading, currentMovies, isAuth, openModalAuth}
 })

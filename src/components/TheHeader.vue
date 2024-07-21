@@ -6,7 +6,6 @@
       @click="handleClickAuth"
       :class="{'header__button-auth': store.isAuth}"
     >{{ store.isAuth ? 'Выйти' : 'Войти' }}</button>
-<!--    <button @click="handleClickTheme">{{ isLightTheme ? 'Выйти' : 'Войти' }}</button>-->
   </header>
 </template>
 
@@ -17,7 +16,7 @@ import {useMoviesStore} from "@/stores/getMoviesStore";
 const store = useMoviesStore()
 
 const handleClickAuth = () => {
-  store.isAuth = !store.isAuth
+  store.openModalAuth = true
 }
 
 </script>
@@ -48,7 +47,7 @@ const handleClickAuth = () => {
         background-color: rgba(255,255,255,0.2);
       }
       &-auth {
-        color: #41598d;
+        color: #33d;
       }
     }
   }
