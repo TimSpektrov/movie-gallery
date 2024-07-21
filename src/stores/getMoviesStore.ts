@@ -4,10 +4,11 @@ import axios from "axios";
 
 export const useMoviesStore = defineStore('movies', () => {
   const movies = ref(localStorage.getItem('movies') ? JSON.parse(localStorage.movies) : [])
-  const genres = ref(localStorage.getItem('genres') ? JSON.parse(localStorage.genres) : [])
+  // const genres = ref(localStorage.getItem('genres') ? JSON.parse(localStorage.genres) : [])
   const currentMovies = ref(null)
   const isLoadingMovies = ref(false)
   const isLoadingGenres = ref(false)
+  const isAuth = ref(false)
 
   const isLoading = computed(() => isLoadingGenres.value || isLoadingMovies.value)
   const fetchMoviesData = async () => {
@@ -47,5 +48,5 @@ export const useMoviesStore = defineStore('movies', () => {
   //   }
   // }
 
-  return {movies, genres, fetchMoviesData, isLoading, currentMovies}
+  return {movies, fetchMoviesData, isLoading, currentMovies, isAuth}
 })

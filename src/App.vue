@@ -10,6 +10,8 @@ import TheHeader from "@/components/TheHeader.vue";
   <main>
     <RouterView />
   </main>
+
+  
 </template>
 
 <style lang="scss">

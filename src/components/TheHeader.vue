@@ -1,22 +1,23 @@
 <template>
   <header class="header">
     <RouterLink class="logo-link" to="/"><img alt="logo" class="logo" src="@/assets/img/svg/logo.svg" /></RouterLink>
-    <button  @click="handleClickAuth">{{ isAuth ? 'Выйти' : 'Войти' }}</button>
-    <button @click="handleClickTheme">{{ isLightTheme ? 'Выйти' : 'Войти' }}</button>
+    <button
+      class="header__button"
+      @click="handleClickAuth"
+      :class="{'header__button-auth': store.isAuth}"
+    >{{ store.isAuth ? 'Выйти' : 'Войти' }}</button>
+<!--    <button @click="handleClickTheme">{{ isLightTheme ? 'Выйти' : 'Войти' }}</button>-->
   </header>
 </template>
 
 <script setup lang="ts">
 import {RouterLink} from "vue-router";
-import {ref} from "vue";
-let isAuth = ref(false)
-let isLightTheme = ref(false)
+import {useMoviesStore} from "@/stores/getMoviesStore";
+
+const store = useMoviesStore()
 
 const handleClickAuth = () => {
-  isAuth.value = !isAuth.value
-}
-const handleClickTheme = () => {
-  isLightTheme.value = !isLightTheme.value
+  store.isAuth = !store.isAuth
 }
 
 </script>
@@ -34,6 +35,22 @@ const handleClickTheme = () => {
     background-color: #04081c;
     position: relative;
     z-index: 2;
+
+    &__button {
+      padding: 15px;
+      color: #FFF;
+      border:1px solid currentColor;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0);
+      cursor: pointer;
+      transition: background-color .3s;
+      &:hover {
+        background-color: rgba(255,255,255,0.2);
+      }
+      &-auth {
+        color: #41598d;
+      }
+    }
   }
   .logo-link {
     margin-right: auto;
