@@ -5,7 +5,7 @@
       class="movie-card__rate"
       :class="{'movie-card__rate_gold': props.item.tmdbRating > 8, 'movie-card__rate_silver': props.item.tmdbRating > 7}"
     >{{ roundRates(props.item.tmdbRating) }}</div>
-<!--    <h3 class="movie-card__title">{{ props.item.title }} <span class="movie-card__years">({{ props.item.releaseYear }})</span></h3>-->
+    <h3 class="movie-card__title">{{ props.item.title }} <span class="movie-card__years">({{ props.item.releaseYear }})</span></h3>
   </div>
 </template>
 
@@ -31,15 +31,14 @@ const handleClick = () => {
     position: relative;
     cursor: pointer;
     transition: scale .4s;
+    background-color: rgba(255,255,255,.03);
     &:hover {
       scale: 1.03;
     }
     &__bg {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
+      height: calc(100% - 106px);
+
       object-fit: cover;
       object-position: center;
     }
@@ -64,14 +63,15 @@ const handleClick = () => {
       }
     }
     &__title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: calc(2em + 20px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: calc(4em + 34px);
       margin: 0;
       padding: 10px;
       font-size: 18px;
+      text-align: center;
       color: yellow;
       overflow: hidden;
       z-index: 1;

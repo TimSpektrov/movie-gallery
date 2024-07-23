@@ -2,8 +2,6 @@
 import { RouterView } from 'vue-router'
 import TheHeader from "@/components/TheHeader.vue";
 import AuthPopup from "@/components/AuthPopup.vue";
-
-
 </script>
 
 <template>

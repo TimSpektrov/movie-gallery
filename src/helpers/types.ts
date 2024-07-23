@@ -1,33 +1,38 @@
 export type GenreKeys = keyof typeof genres;
 
-
 export interface IMovie {
   id:	number;
-  title:	string;
-  originalTitle:	string;
-  language:	string;
-  releaseYear:	number;
-  releaseDate:	string;
+  title: string;
+  originalTitle: string;
+  // language: string;
+  releaseYear: number ;
+  // releaseDate:	string;
   genres:	GenreKeys[];
-  plot:	string;
-  runtime:	number;
-  budget:	string;
-  revenue:	string;
-  homepage:	string;
-  status:	string;
-  posterUrl:	string;
-  backdropUrl:	string;
-  trailerUrl:	string;
-  trailerYoutubeId:	string;
-  tmdbRating:	number;
-  searchL:	string;
-  keywords:	string[];
-  countriesOfOrigin:	string[];
-  languages:	string[];
-  cast:	string[];
   director:	string;
-  production:	string;
-  awardsSummary:	string;
+  budget:	string | number;
+  runtime: number;
+  tmdbRating:	number;
+  plot:	string;
+  backdropUrl:	string;
+  posterUrl: string;
+  // revenue: string;
+  // homepage:	string;
+  // status:	string;
+  // trailerUrl:	string;
+  // trailerYoutubeId:	string;
+  // searchL:	string;
+  // keywords:	string[];
+  // countriesOfOrigin:	string[];
+  // languages:	string[];
+  // cast:	string[];
+  // production:	string;
+  // awardsSummary:	string;
+}
+
+export interface ICreateGenres {
+  value: keyof typeof genres,
+  name: typeof genres,
+  isSelect: boolean
 }
 
 export const genres = {

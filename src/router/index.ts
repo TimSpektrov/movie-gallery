@@ -15,6 +15,16 @@ const router = createRouter({
       name: 'movie',
       component: TheMovie
     },
+    {
+      path: '/add-new',
+      name: 'add',
+      component: TheMovie
+    },
+    {
+      path: '/edit-movie/:id',
+      name: 'edit',
+      component: TheMovie
+    },
 
     // {
     //   path: '/about',

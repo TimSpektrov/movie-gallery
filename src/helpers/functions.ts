@@ -1,10 +1,11 @@
 import {genres} from "@/helpers/types";
+import type {GenreKeys } from "@/helpers/types";
 
 export const roundRates = (num: number) => {
   return Math.round(num * 10) / 10
 }
 
-export const joinGenres = (arr: string[]) => {
+export const joinGenres = (arr: GenreKeys[]) => {
   return arr.map(el => genres[el]).join(', ')
 }
 
@@ -14,7 +15,7 @@ export const setRuntime = (time: number) => {
   return `${h}ч ${m.toString().padStart(2, '0')}м`
 }
 
-export const toMoney = (str: string) => {
+export const toMoney = (str: string | number) => {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

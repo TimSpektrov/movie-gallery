@@ -1,11 +1,12 @@
 import {defineStore} from "pinia";
 import {computed, ref} from "vue"
 import axios from "axios";
+import type {IMovie} from "@/helpers/types";
 
 export const useMoviesStore = defineStore('movies', () => {
   const movies = ref(localStorage.getItem('movies') ? JSON.parse(localStorage.movies) : [])
   // const genres = ref(localStorage.getItem('genres') ? JSON.parse(localStorage.genres) : [])
-  const currentMovies = ref(null)
+  const currentMovies = ref<IMovie | null>(null)
   const isLoadingMovies = ref(false)
   const isLoadingGenres = ref(false)
   const isAuth = ref(false)
