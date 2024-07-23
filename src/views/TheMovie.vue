@@ -28,21 +28,21 @@
           <div v-if="isEdit" class="movie__origin-title movie-genres">
             <div class="movie-genres__container">
               <span class="movie-genres__items-name">Убрать: </span>
-              <button
-                class="movie-genres__item"
-                v-for="genre in newGenres.filter(el => el.isSelect)"
-                :key="genre.value"
-                @click="genre.isSelect = !genre.isSelect"
-              >{{ genre.name }}</button>
+<!--              <button-->
+<!--                class="movie-genres__item"-->
+<!--                v-for="genre in newGenres.filter(el => el.isSelect)"-->
+<!--                :key="genre.value"-->
+<!--                @click="genre.isSelect = !genre.isSelect"-->
+<!--              >{{ genre.name }}</button>-->
             </div>
             <div class="movie-genres__container">
               <span class="movie-genres__items-name">Добавить: </span>
-              <button
-                class="movie-genres__item"
-                v-for="genre in newGenres.filter(el => !el.isSelect)"
-                :key="genre.value"
-                @click="genre.isSelect = !genre.isSelect"
-              >{{ genre.name }}</button>
+<!--              <button-->
+<!--                class="movie-genres__item"-->
+<!--                v-for="genre in newGenres.filter(el => !el.isSelect)"-->
+<!--                :key="genre.value"-->
+<!--                @click="genre.isSelect = !genre.isSelect"-->
+<!--              >{{ genre.name }}</button>-->
             </div>
           </div>
 
@@ -126,7 +126,7 @@ onBeforeMount(() => {
 
   const newGenres = ref(Object.keys(genres).map((key: string) => ({
       value: key,
-      name: genres[key],
+      // name: genres[key],
       isSelect: currentMovies.value?.genres.includes(key)
     })))
 
@@ -137,8 +137,12 @@ onBeforeRouteUpdate((to, from) => {
 })
 
   watch(newGenres.value, (newValue: ICreateGenres[]) => {
-    currentMovies.value.genres = newValue.filter(el => el.isSelect).map(el => el.value)
-  }, {deep: true, immediate: true})
+    console.log(newGenres.value)
+    // currentMovies.value.genres = newValue.filter(el => el.isSelect).map(el => el.value)
+  }, {
+    deep: true,
+    immediate: true
+  })
 
   const maskInput = (event: Event, inputName: string) => {
     const inputElement = event.target as HTMLInputElement;
